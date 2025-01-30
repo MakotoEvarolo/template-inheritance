@@ -1,0 +1,63 @@
+{% extends "Base/layout.html" %}
+
+{% block title %} My Blog Post {% endblock %}
+
+{% block content %}
+<div class="container my-5">
+    {% if post_id == 1 %}
+        <h1>My Journey with Python and My Excitement for React</h1>
+        <br>
+        <p><strong>Author:</strong> Makoto Evarolo</p>
+        <br>
+        <p>Programming has always fascinated me, and Python is the language that made me fall in love with coding. Its simplicity, flexibility, and power make it an incredible tool 
+            for everything from automating tasks to building web applications. I love how intuitive it feels, allowing me to focus more on problem solving rather than struggling with syntax. 
+            Every time I write Python code, I appreciate how efficient and readable it is, and I’m always eager to explore new libraries and frameworks to expand my skills.
+            <br>
+            <br>
+            While I feel comfortable with Python, React is something I’ve yet to dive into, but I’m incredibly excited to learn it. The idea of building interactive and dynamic web applications 
+            using React sounds both challenging and rewarding. I know mastering React will open up new opportunities for me, and I can’t wait to write my first lines of code with it.
+            
+            My goal is to keep learning, experimenting, and improving. Whether it’s becoming more proficient in Python or finally getting hands-on with React, I’m excited for the journey ahead. 
+            One day, I hope to master both and build amazing projects that I can truly be proud of.
+        </p>
+    {% elif post_id == 2 %}
+        <h1>How Dota 2 and Valorant Made Gaming More Than Just a Hobby</h1>
+        <br>
+        <p><strong>Author:</strong> Makoto Evarolo</p>
+        <br>
+        <p>Video games have always been a big part of my life, but Dota 2 and Valorant hold a special place in my heart. These games aren’t just about winning or ranking up they’ve 
+            become a way for me to unwind, challenge myself, and connect with amazing people.
+
+            Dota 2 taught me patience, strategy, and teamwork. The complexity of the game always keeps me engaged, and every match feels like a new puzzle to solve. Whether it’s 
+            pulling off a game changing play or simply improving my skills, I love the sense of growth and competition it brings.
+            <br>
+            <br>
+            On the other hand, Valorant is my go to for fast-paced action and intense gunfights. The mix of precise aim, agent abilities, and tactical plays makes every round exciting. 
+            But what I appreciate most is how it brings people together. I’ve made so many friends through late-night ranked matches, casual games, and even just joking around in voice chat.
+
+            These games are more than just entertainment they’ve given me unforgettable memories, taught me valuable lessons, and introduced me to people I wouldn’t have met otherwise. 
+            That’s why I’ll always love and appreciate them.
+        </p>
+    {% elif post_id == 3 %}
+        <h1>My Love for Soccer and Basketball</h1>
+        <br>
+        <p><strong>Author:</strong> Makoto Evarolo</p>
+        <br>
+        <p>As a child, I was always fascinated by sports, especially soccer and basketball. I started playing soccer when I was in first grade, and although I didn't have the skills yet, 
+            the experience was unforgettable. I remember spending hours watching Lionel Messi’s games on YouTube, mesmerized by his brilliance on the field during his time with Barcelona. 
+            Messi wasn’t just a player to me he was an inspiration. His incredible talent, vision, and mastery of the game made him my favorite soccer player.
+            <br>
+            <br>
+            As I entered high school, my passion for playing soccer began to fade, but my love for watching it remained strong. Around that time, basketball became my second sport. My friends 
+            and I would go from one basketball court to another, playing against anyone willing to compete. The thrill of winning a game with my friends made basketball even more exciting. 
+            There was something special about the teamwork, the competition, and the pure joy of the sport that made me appreciate it even more.
+            
+            Though my interests shifted over time, my love for sports has never wavered. Whether it’s soccer or basketball, watching or playing, the passion and excitement that sports bring 
+            into my life will always be something I cherish.</p>
+    {% else %}
+        <h1>Post Not Found</h1>
+        <p>The post you're looking for does not exist.</p>
+    {% endif %}
+    <a href="{{ url_for('index') }}" class="btn btn-secondary mt-3">Back to Home</a>
+</div>
+{% endblock %}

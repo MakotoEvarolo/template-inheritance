@@ -1,0 +1,34 @@
+{% extends "Base/layout.html" %}
+{% block title %} Hello, {{ username }}! {% endblock %}
+{% block content %}
+{{ super() }}
+<br>
+<div class="container">
+    <div class="card mb-3">
+    <div class="row no-gutters">
+        <div class="col-md-4">
+        <img src="{{ url_for('static', filename='plgfat.jpg')}}" class="card-img avatar" alt="Avatar">
+        </div>
+        <div class="col-md-8">
+        <div class="card-body">
+            <h5 class="card-title"> Welcome back, {{ username }}</h5>
+            <p class="card-text">
+                <ul>
+                    <li>Student</li>
+                    <li>SSG - President</li>
+                    <li>Streamer</li>
+                    <li>plgfat - Tiktok & Twitch account</li>
+                </ul>
+                Hi, my name is Makoto Evarolo and I live in North Town 2, Libertad Butuan. I attend school at ACLC College of Butuan, 
+                graduated senior high school at University of Cebu Banilad. I am current A 3rd year College with a course of Bachelor
+                of Science in Information Technologies.
+
+                I am currently the SSG - President in the school of ACLC College of Butuan and also a Streamer.
+            </p>
+            <a href="{{ url_for('index') }}" class="btn btn-secondary mt-3">Back to Home</a>
+        </div>
+        </div>
+    </div>
+    </div>
+</div>
+{% endblock %}

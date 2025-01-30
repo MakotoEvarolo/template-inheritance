@@ -1,0 +1,49 @@
+{% extends "Base/layout.html" %}
+{% block title %} My Sample Page {% endblock %}
+{% block content %}
+{{ super() }}
+<br>
+<div class="container">
+    <h1 class="mb-4 heading-title">Welcome to My Blog</h1>
+        <div class="row g-5 container-blog">
+            <div class="col-md-4">
+                <div class="card h-100">
+                    <div class="card-body">
+                        <h5 class="card-title text-center">PROGRAMMING</h5>
+                        <div class="col-md-4 position-relative imgs-one">
+                            <img src="{{ url_for('static', filename='python-pic.png')}}" class="card-img first-img" alt="Avatar">
+                            <img src="{{ url_for('static', filename='react-pic.png')}}" class="card-img second-img" alt="Avatar">
+                        </div>
+                        <p>This blog post is all about my interest in programming. Click "Read More" to know more.</p>
+                        <a href="{{ url_for('post_detail', post_id=1) }}" class="btn btn-primary">Read More</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card h-100">
+                    <div class="card-body">
+                        <h5 class="card-title text-center">VIDEO GAMES</h5>
+                        <div class="col-md-4 position-relative imgs-one">
+                            <img src="{{ url_for('static', filename='dota 2.png')}}" class="card-img first-img" alt="Avatar">
+                            <img src="{{ url_for('static', filename='valorant.png')}}" class="card-img second-img" alt="Avatar">
+                        </div>
+                        <p>This blog post is all about my hobbies in video games. Click "Read More" to know more.</p>
+                        <a href="{{ url_for('post_detail', post_id=2) }}" class="btn btn-primary">Read More</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card h-100">
+                    <div class="card-body">
+                        <h5 class="card-title text-center">SPORTS</h5>
+                        <div class="col-md-4 position-relative imgs-three">
+                            <img src="{{ url_for('static', filename='SPORTS.png')}}" class="card-img first-img" alt="Avatar">
+                        </div>
+                        <p>This blog post is all about my hobbies in playing sports. Click "Read More" to know more.</p>
+                        <a href="{{ url_for('post_detail', post_id=3) }}" class="btn btn-primary">Read More</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+</div>
+{% endblock %}

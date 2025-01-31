@@ -1,0 +1,16 @@
+body{
+    background-color: #303641;
+}
+
+.avatar{
+    padding: 50px;
+}
+
+.container {
+    width: 50%; /* Adjust as needed */
+    margin: auto; /* Centers horizontally */
+    height: 100vh; /* Makes the container take up the full viewport height */
+    display: flex;
+    justify-content: center; /* Centers content horizontally */
+    align-items: center; /* Centers content vertically */
+}

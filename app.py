@@ -1,12 +1,57 @@
-from flask import Flask, render_template, url_for, redirect
+from flask import Flask, render_template, request, url_for, session, redirect
 from flask_bootstrap import Bootstrap5 
 
 app = Flask(__name__)
 bootstrap = Bootstrap5(app)
+app.secret_key = "plgfat"
+
+users = {}
 
 @app.route('/')
+def home():
+    return redirect(url_for('sign_up'))
+
+
+@app.route("/signup")
+def sign_up():
+    return render_template("authentication/sign_up.html")
+
+@app.route("/signup", methods=["GET", "POST"])
+def sign_up_post():
+    if request.method == "POST":
+        username = request.form.get("username")
+        password = request.form.get("password")
+        if username and password:
+            users[username] = password
+            return redirect(url_for("login"))
+        return "Please provide a username and password."
+    return render_template("authentication/sign_up.html")
+
+@app.route("/login")
+def login():
+    return render_template("authentication/login.html")
+
+@app.route("/login", methods=["GET", "POST"])
+def login_post():
+    if request.method == "POST":
+        username = request.form.get("username")
+        password = request.form.get("password")
+        if users.get(username) == password:
+            session["user"] = username
+            return redirect(url_for("index"))
+        return "Invalid credentials. Please try again."
+    return render_template("authentication/login.html")
+
+@app.route("/logout")
+def logout():
+    session.pop("user", None)
+    return redirect(url_for("login"))
+
+@app.route("/index")
 def index():
-    return render_template('User/index.html')
+    if "user" not in session:
+        return redirect(url_for("login"))
+    return render_template("User/index.html", username=session["user"])
 
 @app.route('/profile/<string:username>')
 def profile(username):

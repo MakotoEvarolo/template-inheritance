@@ -1,0 +1,57 @@
+{% extends "Base/layout.html" %}
+{% block title %} NOTES {% endblock %}
+{% block content %}
+{{ super() }}
+<div class="container mt-4">
+    <h2>Notes</h2>
+
+    {% with messages = get_flashed_messages(with_categories=true) %}
+      {% if messages %}
+        {% for category, message in messages %}
+          <div class="alert alert-{{ category }}">{{ message }}</div>
+        {% endfor %}
+      {% endif %}
+    {% endwith %}
+
+    <form method="POST" action="{{ url_for('note') }}">
+        <div class="mb-3">
+            <label for="note_title" class="form-label">Title:</label>
+            <input type="text" class="form-control" id="note_title" name="note_title" required>
+        </div>
+        <div class="mb-3">
+            <label for="note_content" class="form-label">Content:</label>
+            <textarea class="form-control" id="note_content" name="note_content" required></textarea>
+        </div>
+        <button type="submit" class="btn btn-secondary mt-3">Add Note</button>
+    </form>
+
+    <hr>
+
+    <h3>My Notes</h3>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Title</th>
+                <th>Content</th>
+                <th>Created</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for note in notes %}
+            <tr>
+                <td>{{ note[1] }}</td>
+                <td>{{ note[2] }}</td>
+                <td>{{ note[3] }}</td>
+                <td>
+                    <a href="{{ url_for('edit_note', note_id=note[0]) }}" class="btn btn-warning btn-sm">Edit</a>
+                    <form action="{{ url_for('del_note', note_id=note[0]) }}" method="POST" style="display:inline;">
+                        <button type="submit" class="btn btn-danger btn-sm" onclick="return confirm('Are you sure?')">Delete</button>
+                    </form>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+{% endblock %}

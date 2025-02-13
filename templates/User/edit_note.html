@@ -1,6 +1,7 @@
 {% extends "Base/layout.html" %}
 {% block title %} Edit Note {% endblock %}
 {% block content %}
+{{ super() }}
 <div class="container mt-4">
     <h2>Edit Note</h2>
     <form method="POST" action="{{ url_for('update_note', note_id=note[0]) }}">

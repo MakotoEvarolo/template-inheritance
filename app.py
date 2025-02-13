@@ -90,8 +90,8 @@ def note():
     
     return render_template('User/note.html', notes=notes)
 
-@app.route('/edit/<int:note_id>', methods=['GET', 'POST'])
-def edit_note(note_id):
+@app.route('/update/<int:note_id>', methods=['GET', 'POST'])
+def update_note(note_id):
     if request.method == 'POST':
         note_title = request.form.get("note_title")
         note_content = request.form.get("note_content")

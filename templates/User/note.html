@@ -44,7 +44,7 @@
                 <td>{{ note[2] }}</td>
                 <td>{{ note[3] }}</td>
                 <td>
-                    <a href="{{ url_for('edit_note', note_id=note[0]) }}" class="btn btn-warning btn-sm">Edit</a>
+                    <a href="{{ url_for('update_note', note_id=note[0]) }}" class="btn btn-secondary btn-sm">Edit</a>
                     <form action="{{ url_for('del_note', note_id=note[0]) }}" method="POST" style="display:inline;">
                         <button type="submit" class="btn btn-danger btn-sm" onclick="return confirm('Are you sure?')">Delete</button>
                     </form>
